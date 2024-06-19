@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: rgb(92, 4, 4);
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1243705b;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        h1, h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            margin-right: 10px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form .input-box {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .input-box label {
+            color: #e6e3e3;
+        }
+        .form :where(.input-box input, .select-box) {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            color: #0e0d0d;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0 15px;
+        }
+        .input-box input:focus {
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 399px) {
+  body {
+    background-color: #d41010;
+    color: rgb(233, 228, 228);
+  }
+}
+@media screen and (min-width: 400px) {
+  body {
+    background-color: rgb(221, 130, 10);
+    color: rgb(240, 236, 236);
+  }
+}
+@media screen and (min-width: 600px) {
+  body {
+    background-color: rgb(48, 14, 238);
+    color: white;
+  }
+}
+@media screen and (min-width: 700px) {
+  body {
+    background-image: url(olah.jpg);
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+       }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran Ekstrakurikuler</h1>
+        <h2>Data Mahasiswa</h2>
+        <form method="POST" action="index.php">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required>
+
+            <label for="NIM">NIM:</label>
+            <input type="text" id="NIM" name="NIM" placeholder="NIM" required>
+
+            <label for="tanggal lahir">Tanggal Lahir:</label>
+            <input type="date" id="tgl" name="tgl">
+
+            <label for="tlp">No.Telp:</label>
+            <input type="text" id="tlp" name="tlp">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" >
+
+            <div class="radio-group">
+              <label for="opsi">Jenis Kelamin:</label>
+              <label for="Laki-laki">
+                  <input type="radio" id="kelamin" name="opsi" value="Laki-laki" required onchange="showTeamDetails(true)">
+                  Laki-laki
+              </label>
+              <label for="Perempuan">
+                  <input type="radio" id="kelamin" name="opsi" value="Perempuan" required onchange="showTeamDetails(false)">
+                  Perempuan
+              </label>
+          </div class="radio-group">
+          <label for="select">Pilihan Ekstrakurikuler : </label><br>
+                <select name="select" id="select">
+                    <option value="option1"></option>
+                    <option value="Futsal">Futsal</option>
+                    <option value="option2">Basket</option>
+                    <option value="option3">Taekwondo</option>
+                    <option value="option3">Silat</option>
+                    <option value="option3">Band</option>
+                </select>
+
+
+          <div>
+
+          </div>
+
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <script>
+        function showTeamDetails(isTeam) {
+            document.getElementById('team-details').style.display = isTeam ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
